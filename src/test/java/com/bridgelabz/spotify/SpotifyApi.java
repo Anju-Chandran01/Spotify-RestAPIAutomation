@@ -18,14 +18,15 @@ public class SpotifyApi {
 
     @BeforeTest
     public void getTokenAndTrackId() {
-        token = "Bearer BQAUL28nPLbCdk-S0DNpCQXD1R83c_jgkJb3IPYwGFX4t-nIU5zyFG82ntlbn57_i0Iz7mkXEh6bcIF48m3inYfSqpFoKc2T4CYd0YilicT9ITm2OAIqu6XeS3etLe0tubZd5dJXBAMcb3kbOt8i63jmB25Ul92XE0VTQ7czmBQT12wJYGkKdU5EzKa_FnVvKvc80aXo6QN6Zxzl4ZKvNvWEeUyD3OBDPxVCkPLSb1kXMiOdmz1i1HLuIrrvjUIhbNqqZQ";
+        token = "Bearer BQBQAS32Y7Yq8bj8o75SaQxNxG66o2_Thj5DoNNfbI5lvNRs7IACg9TizO6eVLwDmz4uaOjvnSdojP5QHs5iuqMLWYxflMfPwofpRuJ2E2Yxgnsmbo9IsQaM-xiTnC8HM7p5i9Par0sowlA6FyxUXKzMRRMRuZNQsUpgAR7nDt2DzyeUyCWVxInDQBkyoVM6rvN_Fx4eZxL1wBHxlcUsbQ";
         trackId = "5O932cZmzOZGOGZz9RHx20";
     }
 
     //    GET CURRENT USERS PROFILE
     @Test(priority = 1)
     public void testGet_CurrentUsersProfile_ShouldReturn_StatusCode200() {
-        Response response = RestAssured.given().contentType(ContentType.JSON)
+        Response response = RestAssured
+                .given().contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .header("Authorization", token)
                 .when()
@@ -43,7 +44,8 @@ public class SpotifyApi {
     // GET USERS PROFILE USING USERID
     @Test(priority = 2)
     public void Get_UserProfile(){
-        Response response = RestAssured.given().contentType(ContentType.JSON)
+        Response response = RestAssured
+                .given().contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .header("Authorization",token)
                 .when()
@@ -58,7 +60,8 @@ public class SpotifyApi {
     // CREATE PLAYLIST
     @Test(priority = 3)
     public void post_CreatePlaylist() {
-        Response response = RestAssured.given().contentType(ContentType.JSON)
+        Response response = RestAssured
+                .given().contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .header("Authorization", token)
                 .body("{\n" +
